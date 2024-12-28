@@ -4,7 +4,6 @@ import com.vieirarafael.motorderegras.domain.Documento;
 import com.vieirarafael.motorderegras.domain.Glosa;
 import com.vieirarafael.motorderegras.domain.ValidacaoGlosa;
 import com.vieirarafael.motorderegras.domain.glosas.AcaoGlosa;
-import com.vieirarafael.motorderegras.domain.glosas.Glosa002ContratanteInadimplente;
 import lombok.Getter;
 import org.springframework.stereotype.Component;
 

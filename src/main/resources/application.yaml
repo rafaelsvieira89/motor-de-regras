@@ -7,8 +7,14 @@ spring:
     username: guest
     password: guest
 rabbitmq:
+  exchanges:
+    motor-de-regras:
+      analise:
+        concluida: motor-de-regras.analise-concluida.ex
   queue:
-    validacao: motor-de-regras.validar-documento
+    motor-de-regras:
+      analise:
+        pendente: motor-de-regras.analise-pendente
 #Zipkin
 management:
   tracing:

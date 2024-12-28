@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class Listener {
     private final ValidacaoService validacaoService;
 
-    @RabbitListener(queues = "")
+    @RabbitListener(queues = "${rabbitmq.queue.motor-de-regras.analise.pendente}")
     public void validar(Documento documento) {
         validacaoService.validarDocumento(documento);
     }

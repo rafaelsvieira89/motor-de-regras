@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: motor-de-regras
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+rabbitmq:
+  queue:
+    validacao: motor-de-regras.validar-documento
+#Zipkin
+management:
+  tracing:
+    sampling:
+      probability: 1.0

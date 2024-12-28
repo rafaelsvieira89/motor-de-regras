@@ -1,22 +1,26 @@
 package com.vieirarafael.motorderegras.domain.validacoes;
 
-import com.vieirarafael.motorderegras.domain.Documento;
 import com.vieirarafael.motorderegras.domain.Glosa;
-import com.vieirarafael.motorderegras.domain.ValidacaoGlosa;
+import com.vieirarafael.motorderegras.domain.Procedimento;
 import com.vieirarafael.motorderegras.domain.ValidacaoGlosaProcedimento;
+import com.vieirarafael.motorderegras.domain.ports.SistemaErpPort;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.stereotype.Component;
-
-import java.time.LocalDate;
-
+@AllArgsConstructor
 @Getter
 @Component
-public class ValidarGlosa008ProcedimentoNãoPodeSerRepetido implements ValidacaoGlosaProcedimento {
+public class ValidarGlosa008ProcedimentoNãoPodeSerRepetido extends ValidacaoGlosaProcedimento {
+
     public static String GLOSA = "Procedimento não pode ser repetido reconsulta";
+    private final SistemaErpPort sistemaErpPort;
+
+
     @Override
-    public Glosa validar(Documento documento) {
-        if(documento.getUsuario().getCarteira().getDtVencimento().isBefore(LocalDate.now()))
-            return new Glosa(GLOSA);
-        return null;
+    public Glosa validar(Procedimento procedimento) {
+
+        return sistemaErpPort.validar(procedimento, 8);
+
     }
+
 }

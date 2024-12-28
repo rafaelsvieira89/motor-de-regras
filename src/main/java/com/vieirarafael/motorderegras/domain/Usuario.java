@@ -10,4 +10,5 @@ public class Usuario {
     }
     private LocalDate dtInclusao;
     private Carteira carteira;
+    private Contrato contrato;
 }

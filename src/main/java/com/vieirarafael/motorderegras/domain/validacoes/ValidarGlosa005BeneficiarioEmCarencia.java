@@ -6,8 +6,6 @@ import com.vieirarafael.motorderegras.domain.ValidacaoGlosa;
 import lombok.Getter;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
-
 @Getter
 @Component
 public class ValidarGlosa005BeneficiarioEmCarencia implements ValidacaoGlosa {

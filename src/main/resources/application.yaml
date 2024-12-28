@@ -15,6 +15,7 @@ rabbitmq:
     motor-de-regras:
       analise:
         pendente: motor-de-regras.analise-pendente
+        concluida: motor-de-regras.analise-concluida
 #Zipkin
 management:
   tracing:

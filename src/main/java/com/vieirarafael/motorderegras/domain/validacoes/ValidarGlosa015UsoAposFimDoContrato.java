@@ -4,6 +4,7 @@ import com.vieirarafael.motorderegras.domain.Documento;
 import com.vieirarafael.motorderegras.domain.Glosa;
 import com.vieirarafael.motorderegras.domain.Procedimento;
 import com.vieirarafael.motorderegras.domain.ValidacaoGlosa;
+import com.vieirarafael.motorderegras.domain.glosas.AcaoGlosa;
 import com.vieirarafael.motorderegras.domain.ports.SistemaErpPort;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,7 +22,7 @@ public class ValidarGlosa015UsoAposFimDoContrato implements ValidacaoGlosa {
     @Override
     public Glosa validar(Documento documento) {
         if(documento.getUsuario().getContrato().getDtVencimento().isBefore(LocalDate.now()))
-            return new Glosa(GLOSA);
+            return new Glosa(GLOSA, AcaoGlosa.GLOSAR);
         return null;
     }
 }

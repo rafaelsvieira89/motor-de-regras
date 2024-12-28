@@ -1,12 +1,18 @@
 package com.vieirarafael.motorderegras.domain;
 
-import lombok.NoArgsConstructor;
+import com.vieirarafael.motorderegras.domain.glosas.AcaoGlosa;
+import lombok.Getter;
 
-@NoArgsConstructor
+@Getter
 public class Glosa {
-    protected String descricao;
+    private final String descricao;
+    private final AcaoGlosa acaoGlosa;
 
-    public Glosa(String descricao) {
+    public Glosa(String descricao, AcaoGlosa acaoGlosa) {
         this.descricao = descricao;
+        this.acaoGlosa = acaoGlosa;
     }
+
+
+
 }

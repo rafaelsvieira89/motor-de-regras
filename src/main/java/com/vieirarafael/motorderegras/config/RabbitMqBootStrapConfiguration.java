@@ -14,6 +14,11 @@ public class RabbitMqBootStrapConfiguration {
     @Value("${rabbitmq.queue.motor-de-regras.analise.concluida}")
     private String filaAnaliseConcluida;
 
+    @Value("${rabbitmq.exchanges.motor-de-regras.analise.pendente}")
+    private String analisePendenteExchange;
+    @Value("${rabbitmq.queue.motor-de-regras.analise.pendente}")
+    private String filaAnalisePendente;
+
 
 
     @Bean
@@ -32,6 +37,24 @@ public class RabbitMqBootStrapConfiguration {
     public Binding criarBindingAnaliseConcluida(){
         return BindingBuilder.bind(criarFilaAnaliseConcluida())
                 .to(criarExchangeAnaliseConcluida());
+    }
+
+    @Bean
+    public FanoutExchange criarExchangeAnalisePendente(){
+        return ExchangeBuilder.fanoutExchange(analisePendenteExchange)
+                .build();
+    }
+
+    @Bean
+    public Queue criarFilaAnalisePendente(){
+        return QueueBuilder.durable(filaAnalisePendente)
+                .build();
+    }
+
+    @Bean
+    public Binding criarBindingAnalisePendente(){
+        return BindingBuilder.bind(criarFilaAnalisePendente())
+                .to(criarExchangeAnalisePendente());
     }
 
 
